@@ -1173,8 +1173,8 @@ private func resolveMissingPeerNotificationSettings(account: Account, state: Acc
     
     for peerId in state.initialState.peerIdsWithNewMessages {
         if state.peerNotificationSettings[peerId] == nil {
-          let extractedExpr = apiInputPeer(peer)
-          if let peer = state.peers[peerId], let inputPeer = extractedExpr {
+          // let extractedExpr = apiInputPeer(peer)
+          if let peer = state.peers[peerId], let inputPeer = apiInputPeer(peer) {
                 missingPeers[peerId] = inputPeer
             } else {
                 Logger.shared.log("State", "can't fetch notification settings for peer \(peerId): can't create inputPeer")
